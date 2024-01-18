@@ -1,6 +1,8 @@
 //导入路由
 import SMERouter from "sme-router";
 import routers from "./routes";
+//导入样式
+import "./assets/less/main.less";
 //创建实例
 const router = new SMERouter("app");
 //将router暴露在全局，在html中使用
