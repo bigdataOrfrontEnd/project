@@ -1,5 +1,6 @@
 //引入模版
 import indexV from "@/views/index";
+import routers from "../routes";
 //导入组件
 import HeaderComponent from "@/components/Header";
 import SiderComponent from "@/components/Sider";
@@ -11,7 +12,7 @@ export default (req, res, next) => {
   next(
     indexV({
       Header: HeaderComponent(),
-      Sider: SiderComponent({ url: req.url }),
+      Sider: SiderComponent({ url: req.url, routers: routers }),
       Content: ContentComponent({
         subRouteContent: res.subRoute(),
       }),

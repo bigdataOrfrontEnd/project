@@ -7,17 +7,27 @@ export default [
   {
     path: "/index",
     element: IndexContraller,
+    isNav: false,
+    title: "首页",
+    icon: "fa-home",
   },
   {
     path: "/index/admin",
     element: AdminContraller,
+    isNav: true,
+    title: "管理员列表",
+    icon: "fa-user",
   },
   {
     path: "/index/adv",
     element: AdvContraller,
+    isNav: true,
+    title: "广告列表",
+    icon: "fa-audio-description",
   },
   {
     path: "/login",
     element: LoginContraller,
+    isNav: false,
   },
 ];
