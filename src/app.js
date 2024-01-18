@@ -4,6 +4,7 @@ import SMERouter from "sme-router";
 import Header from "@/components/Header";
 import Sider from "@/components/Sider";
 import Footer from "@/components/Footer";
+import Content from "@/components/Content";
 //引入模版
 import indexV from "@/views/index";
 import adminV from "@/views/admin";
@@ -19,7 +20,9 @@ router.route("/index", (req, res, next) => {
     indexV({
       Header: Header(),
       Sider: Sider(),
-      subRouteContent: res.subRoute(),
+      Content: Content({
+        subRouteContent: res.subRoute(),
+      }),
       Footer: Footer(),
     })
   );
