@@ -1,10 +1,10 @@
 //导入路由
 import SMERouter from "sme-router";
 //引入模版
-import indexV from "./views/index.ejs";
-import adminV from "./views/admin.ejs";
-import advV from "./views/adv.ejs";
-import loginV from "./views/login.ejs";
+import indexV from "@/views/index";
+import adminV from "@/views/admin";
+import advV from "@/views/adv";
+import loginV from "@/views/login";
 
 //创建实例
 const router = new SMERouter("app");
