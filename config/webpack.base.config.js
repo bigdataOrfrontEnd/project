@@ -1,5 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 module.exports = {
   entry: path.resolve(__dirname, "../src/app.js"),
   output: {
@@ -24,6 +25,20 @@ module.exports = {
       },
       // 自定义的选项
       title: "广告系统",
+    }),
+    // 将源目录（public）中的文件复制到目标目录（项目输出目录）
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          // 源目录
+          from: path.resolve(__dirname, "../public"),
+          // 目标目录
+          to: path.resolve(__dirname, "../dist"),
+          globOptions: {
+            ignore: ["**/**.html"], // 忽略所有的html文件----不然会冲突的
+          },
+        },
+      ],
     }),
   ],
 };
