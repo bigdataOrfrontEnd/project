@@ -14,6 +14,7 @@ export default (req, res, next) => {
       Header: HeaderComponent(),
       Sider: SiderComponent({ url: req.url, routers: routers }),
       Content: ContentComponent({
+        title: routers.find((item) => item.path == req.url).title,
         subRouteContent: res.subRoute(),
       }),
       Footer: FooterComponent(),
