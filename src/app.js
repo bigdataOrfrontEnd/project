@@ -1,10 +1,10 @@
 //导入路由
 import SMERouter from "sme-router";
 //导入组件
-import Header from "@/components/Header";
-import Sider from "@/components/Sider";
-import Footer from "@/components/Footer";
-import Content from "@/components/Content";
+import HeaderComponent from "@/components/Header";
+import SiderComponent from "@/components/Sider";
+import FooterComponent from "@/components/Footer";
+import ContentComponent from "@/components/Content";
 //引入模版
 import indexV from "@/views/index";
 import adminV from "@/views/admin";
@@ -18,12 +18,12 @@ router.route("/index", (req, res, next) => {
   // res.render(indexV({ title: "Shirly", message: "锄禾日当午" }));
   next(
     indexV({
-      Header: Header(),
-      Sider: Sider(),
-      Content: Content({
+      Header: HeaderComponent(),
+      Sider: SiderComponent(),
+      Content: ContentComponent({
         subRouteContent: res.subRoute(),
       }),
-      Footer: Footer(),
+      Footer: FooterComponent(),
     })
   );
 });
