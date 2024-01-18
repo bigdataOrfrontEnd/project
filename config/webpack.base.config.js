@@ -21,6 +21,10 @@ module.exports = {
           //evaluate : '\\[\\[(.+?)\\]\\]'
         },
       },
+      {
+        test: /\.less$/,
+        use: ["style-loader", "css-loader", "less-loader"],
+      },
     ],
   },
   // 解析
