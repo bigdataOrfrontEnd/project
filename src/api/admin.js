@@ -11,8 +11,9 @@ export const getAdmin = () => {
 };
 // 删除指定id的管理员
 export const deletAdmin = (id) => {
-  return axiosSerive.delete("/admin" + id);
+  return axiosSerive.delete("/admin/" + id);
 };
+
 // 修改密码
 export const changePassword = (body) => {
   return advServer.patch("/changpwd", body);

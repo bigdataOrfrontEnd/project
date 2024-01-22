@@ -2,7 +2,7 @@ import toastr from "toastr";
 import "../../node_modules/toastr/build/toastr.css";
 import adminV from "@/views/admin";
 import AdminTable from "../components/AdminTable";
-import { postAdmin, getAdmin } from "../api/admin";
+import { postAdmin, getAdmin, deletAdmin } from "../api/admin";
 // 执行添加管理员账户
 const addAdminExec = (e) => {
   // 获取输入框的数据
@@ -57,6 +57,11 @@ const deleteAdminExec = (event) => {
   if (event.target.classList.contains("btn-danger")) {
     //弹出确认框
     if (confirm("确认删除？")) {
+      //调用后端接口
+      deletAdmin(event.target.dataset.id).then((res) => {
+        //跟新列表
+        getAdminExec();
+      });
     }
   }
 };
