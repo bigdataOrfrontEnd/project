@@ -2,6 +2,7 @@ import toastr from "toastr";
 import "../../node_modules/toastr/build/toastr.css";
 import adminV from "@/views/admin";
 import AdminTable from "../components/AdminTable";
+import Swal from "sweetalert2";
 import { postAdmin, getAdmin, deletAdmin } from "../api/admin";
 // 执行添加管理员账户
 const addAdminExec = (e) => {
@@ -56,13 +57,25 @@ const deleteAdminExec = (event) => {
   //// 判断目标元素是否是删除按钮
   if (event.target.classList.contains("btn-danger")) {
     //弹出确认框
-    if (confirm("确认删除？")) {
-      //调用后端接口
+    Swal.fire({
+      title: "确定删除？",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "确定",
+      cancelButtonText: "取消",
+    }).then((result) => {
       deletAdmin(event.target.dataset.id).then((res) => {
         //跟新列表
         getAdminExec();
+        Swal.fire({
+          title: "删除成功",
+          icon: "success",
+        });
       });
-    }
+    });
+  }
+  if (event.target.classList.contains("btn-success")) {
+    console.log(11);
   }
 };
 export default (req, res) => {
