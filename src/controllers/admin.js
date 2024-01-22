@@ -1,7 +1,7 @@
 import toastr from "toastr";
 import "../../node_modules/toastr/build/toastr.css";
 import adminV from "@/views/admin";
-
+import AdminTable from "../components/AdminTable";
 import { postAdmin, getAdmin } from "../api/admin";
 // 执行添加管理员账户
 const addAdminExec = (e) => {
@@ -21,7 +21,6 @@ const addAdminExec = (e) => {
     toastr.error("密码必须由6到18位数字、字母、下划线组成");
     return;
   }
-
   // 确认密码
   if (passWord !== rePassWord) {
     toastr.error("两次密码不一致");
@@ -43,6 +42,9 @@ const addAdminExec = (e) => {
 const getAdminExec = () => {
   getAdmin().then((res) => {
     console.log(res.data);
+    document.querySelector("#amdinListBox").innerHTML = AdminTable({
+      table: res.data,
+    });
   });
 };
 export default (req, res) => {
