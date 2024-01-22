@@ -7,7 +7,7 @@ module.exports = {
     path: path.resolve(__dirname, "../dist"),
     filename: "js/[name].[hash:12].js",
     clean: true,
-    publicPath: "",
+    publicPath: "/",
   },
   // loaders,处理ejs模版
   module: {

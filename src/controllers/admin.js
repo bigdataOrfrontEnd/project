@@ -1,9 +1,8 @@
 import toastr from "toastr";
 import "../../node_modules/toastr/build/toastr.css";
 import adminV from "@/views/admin";
-// 导入 axios
-import axios from "axios";
 
+import axiosSerive from "../request/advserver";
 // 执行添加管理员账户
 const addAdminExec = (e) => {
   // 获取输入框的数据
@@ -29,8 +28,8 @@ const addAdminExec = (e) => {
     return;
   }
   //使用axios发送请求
-  axios
-    .post("http://127.0.0.1:8088/admin", {
+  axiosSerive
+    .post("/admin", {
       adminName,
       passWord,
     })

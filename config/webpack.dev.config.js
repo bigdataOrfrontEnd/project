@@ -8,6 +8,7 @@ module.exports = merge(baseConfig, {
   devServer: {
     port: "80",
     open: true,
+    historyApiFallback: true,
     proxy: {
       "/api": {
         target: "http://127.0.0.1:8088/",

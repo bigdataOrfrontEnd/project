@@ -4,7 +4,7 @@ import routers from "./routes";
 //导入样式
 import "./assets/less/main.less";
 //创建实例
-const router = new SMERouter("app");
+const router = new SMERouter("app", "html5");
 //将router暴露在全局，在html中使用
 window.router = router;
 //添加路由信息
