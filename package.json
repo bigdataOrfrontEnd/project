@@ -31,6 +31,8 @@
     "webpack-merge": "^5.10.0"
   },
   "dependencies": {
-    "sme-router": "^0.12.8"
+    "axios": "^1.6.5",
+    "sme-router": "^0.12.8",
+    "toastr": "^2.1.4"
   }
 }
