@@ -2,7 +2,7 @@ import toastr from "toastr";
 import "../../node_modules/toastr/build/toastr.css";
 import adminV from "@/views/admin";
 
-import axiosSerive from "../request/advserver";
+import { postAdmin, getAdmin } from "../api/admin";
 // 执行添加管理员账户
 const addAdminExec = (e) => {
   // 获取输入框的数据
@@ -28,11 +28,10 @@ const addAdminExec = (e) => {
     return;
   }
   //使用axios发送请求
-  axiosSerive
-    .post("/admin", {
-      adminName,
-      passWord,
-    })
+  postAdmin({
+    adminName,
+    passWord,
+  })
     .then((res) => {
       console.log(res);
     })
@@ -40,9 +39,16 @@ const addAdminExec = (e) => {
       console.log(err);
     });
 };
+//获取用户列表
+const getAdminExec = () => {
+  getAdmin().then((res) => {
+    console.log(res.data);
+  });
+};
 export default (req, res) => {
   res.render(adminV());
   // 监听点击事件
+  getAdminExec();
   document
     .querySelector("#addAdminBtn")
     .addEventListener("click", addAdminExec);
