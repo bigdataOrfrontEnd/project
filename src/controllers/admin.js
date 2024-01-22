@@ -30,13 +30,16 @@ const addAdminExec = (e) => {
   postAdmin({
     adminName,
     passWord,
-  })
-    .then((res) => {
-      console.log(res);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  }).then((res) => {
+    //管理员添加成功
+    toastr.success(res.msg);
+    //关闭模态框
+    $("#addAdminModal").modal("hide");
+    //情况form提交表单
+    document.adminForm.reset();
+    //刷新列表
+    getAdminExec();
+  });
 };
 //获取用户列表
 const getAdminExec = () => {
@@ -47,6 +50,16 @@ const getAdminExec = () => {
     });
   });
 };
+//删除用户
+const deleteAdminExec = (event) => {
+  console.log(event.target);
+  //// 判断目标元素是否是删除按钮
+  if (event.target.classList.contains("btn-danger")) {
+    //弹出确认框
+    if (confirm("确认删除？")) {
+    }
+  }
+};
 export default (req, res) => {
   res.render(adminV());
   // 监听点击事件
@@ -54,4 +67,8 @@ export default (req, res) => {
   document
     .querySelector("#addAdminBtn")
     .addEventListener("click", addAdminExec);
+  // 给管理员列表中的删除按钮监听单击事件 事件位置
+  document
+    .querySelector("#amdinListBox")
+    .addEventListener("click", deleteAdminExec);
 };
