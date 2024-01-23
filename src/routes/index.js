@@ -1,5 +1,6 @@
 //导入控制器
 import IndexContraller from "@/controllers/index";
+import JsxContraller from "@/controllers/jsxdemo";
 import AdminContraller from "@/controllers/admin";
 import AdvContraller from "@/controllers/adv";
 import LoginContraller from "@/controllers/login";
@@ -9,6 +10,13 @@ export default [
     element: IndexContraller,
     isNav: false,
     title: "首页",
+    icon: "fa-home",
+  },
+  {
+    path: "/react",
+    element: JsxContraller,
+    isNav: true,
+    title: "react测试案例",
     icon: "fa-home",
   },
 

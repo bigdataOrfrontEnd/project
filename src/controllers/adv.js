@@ -1,8 +1,10 @@
 import advV from "@/views/adv";
+// 导入api函数
+import { postAdv } from "../api/adv";
 const prevImgExec = (event) => {
   // 在箭头函数中这样拿到file event.target.files[0]
   const file = event.target.files[0];
-  //如果没有图片直接返回
+  //如果没有图片直接返回,就是用户直接点击了取消,只要打开了那个选择框就是一次change,所以需要给他结束
   if (!file) {
     return;
   }
