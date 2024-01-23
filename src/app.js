@@ -8,7 +8,7 @@ const router = new SMERouter("app", "html5");
 //将router暴露在全局，在html中使用
 window.router = router;
 // 如果拿不到用户信息，就证明用户没有登录，直接跳转到登录页面
-if (window.localStorage.getItem("adminName")) {
+if (!window.localStorage.getItem("adminName")) {
   router.go("/login");
 }
 //添加路由信息
