@@ -20,4 +20,12 @@ export default (req, res, next) => {
       Footer: FooterComponent(),
     })
   );
+
+  //点击退出按钮退出
+  document.querySelector("#logoutBtn").addEventListener("click", () => {
+    // 清空 localStorage
+    localStorage.clear();
+    // 跳转到登录页面
+    window.router.go("/login");
+  });
 };

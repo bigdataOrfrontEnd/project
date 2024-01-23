@@ -11,6 +11,7 @@ export default [
     title: "首页",
     icon: "fa-home",
   },
+
   {
     path: "/index/admin",
     element: AdminContraller,
@@ -28,6 +29,13 @@ export default [
   {
     path: "/login",
     element: LoginContraller,
+    isNav: false,
+  },
+  {
+    path: "*",
+    element: (req, res) => {
+      res.redirect("/index/admin");
+    },
     isNav: false,
   },
 ];
