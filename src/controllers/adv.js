@@ -1,6 +1,16 @@
 import advV from "@/views/adv";
 // 导入api函数
 import { postAdv } from "../api/adv";
+//执行广告的添加
+const addAdvExec=async(event)=>{
+  //阻止默认行为
+  event.preventDefault()
+  //创建FormData对象，以form元素作为参数
+ const fd=new FormData(document.addAdvForm)
+ //利用纯数组进行判断
+ const fdArr=Array.from(fd);
+ 
+}
 const prevImgExec = (event) => {
   // 在箭头函数中这样拿到file event.target.files[0]
   const file = event.target.files[0];
@@ -24,4 +34,5 @@ const prevImgExec = (event) => {
 export default (req, res) => {
   res.render(advV());
   document.querySelector("#advPic").addEventListener("change", prevImgExec);
+document.addAdvForm.addEventListener('submit',addAdvExec)
 };
