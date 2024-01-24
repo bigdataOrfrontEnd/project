@@ -1,6 +1,6 @@
 //导入控制器
 import IndexContraller from "@/controllers/index";
-// import JsxContraller from "@/controllers/jsxdemo";
+import JsxContraller from "@/controllers/Visualization";
 import AdminContraller from "@/controllers/admin";
 import AdvContraller from "@/controllers/adv";
 import LoginContraller from "@/controllers/login";
@@ -32,6 +32,13 @@ export default [
     element: AdvContraller,
     isNav: true,
     title: "广告列表",
+    icon: "fa-audio-description",
+  },
+  {
+    path: "/index/Visualization",
+    element: JsxContraller,
+    isNav: true,
+    title: "可视化",
     icon: "fa-audio-description",
   },
   {
