@@ -1,0 +1,46 @@
+<table id="" class="table table-bordered">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>标题</th>
+      <th>图片</th>
+      <th>类别</th>
+      <th>链接</th>
+      <th>排序</th>
+      <th>添加时间</th>
+      <th>修改时间</th>
+      <th>操作</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% data.table.forEach(item=>{%>
+    <tr>
+      <td><%=item._id%></td>
+      <td><%=item.advTitle%></td>
+      <td>
+        <img
+          height="80"
+          src="http://api.fuming.site:54254/<%=item.advPic%>"
+          alt=""
+        />
+      </td>
+      <td><%=data.advType[item.advType]%></td>
+      <td><%=item.advHref%></td>
+      <td>1</td>
+      <td><%=item.addTime%></td>
+      <td><%=item.upTime%></td>
+      <td>
+        <button type="button" class="btn btn-danger btn-sm">删除</button>
+        <button
+          type="button"
+          data-id="<%=item._id%>"
+          class="btn btn-success btn-sm btn-edit"
+        >
+          修改
+        </button>
+      </td>
+    </tr>
+
+    <%})%>
+  </tbody>
+</table>

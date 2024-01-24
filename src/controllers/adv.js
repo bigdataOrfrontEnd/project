@@ -1,7 +1,8 @@
 import advV from "@/views/adv";
+import AdvTableComponent from "../components/AdvTable.ejs";
 import toastr from "toastr";
 // 导入api函数
-import { postAdv } from "../api/adv";
+import { postAdv, getAdv } from "../api/adv";
 //执行广告的添加
 const addAdvExec = async (event) => {
   //阻止默认行为
@@ -24,7 +25,13 @@ const addAdvExec = async (event) => {
 
   //使用后端API添加广告
   const res = await postAdv(fd);
-  console.log(res);
+  //关闭模态框
+  $("#advModal").modal("hide");
+  //清空表单
+  document.addAdvForm.reset();
+  //隐藏预览图
+  preImgEle.style.display = "none";
+  // 更新列表
 };
 const prevImgExec = (event) => {
   // 在箭头函数中这样拿到file event.target.files[0]
@@ -46,8 +53,24 @@ const prevImgExec = (event) => {
     preImgEle.style.display = "block";
   };
 };
+//获取广告列表
+const getAdvd = async () => {
+  const advType = {
+    1: "轮播图广告",
+    2: "轮播图底部广告",
+    3: "热门回收广告",
+    4: "优品精选广告",
+  };
+  const res = await getAdv({ pageNo: 1, pageSize: 1 });
+  console.log(res);
+  document.querySelector("#advTable").innerHTML = AdvTableComponent({
+    table: res.data,
+    advType,
+  });
+};
 export default (req, res) => {
   res.render(advV());
+  getAdvd();
   document.querySelector("#advPic").addEventListener("change", prevImgExec);
   document.addAdvForm.addEventListener("submit", addAdvExec);
 };
