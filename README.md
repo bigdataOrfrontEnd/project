@@ -11,3 +11,4 @@
   EJS（Embedded JavaScript Templates）是一种 JavaScript 模板引擎，用于在服务器端生成动态 HTML 内容。它允许你在 HTML 文件中嵌入 JavaScript 代码，以便在渲染页面时动态生成内容。
   <%= ... %> 用于输出变量的值到 HTML 中。
   <% ... %> 用于执行 JavaScript 代码块。
+  路由的作用就是前端页面的修改
